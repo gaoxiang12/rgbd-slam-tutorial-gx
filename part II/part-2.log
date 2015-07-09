@@ -1,0 +1,887 @@
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.13)  22 JUN 2015 11:15
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**part-2.tex
+(./part-2.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count90
+\float@exts=\toks16
+\float@box=\box26
+\@float@everytoks=\toks17
+\@floatcapt=\box27
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLaTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2015/03/01 v5547 L3 programming layer (loader) 
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2015/03/01 v5547 L3 programming layer (code) 
+L3 Module: l3bootstrap 2015/02/28 v5542 L3 Bootstrap code
+L3 Module: l3names 2015/02/24 v5535 L3 Namespace for primitives
+L3 Module: l3basics 2015/01/27 v5500 L3 Basic definitions
+L3 Module: l3expan 2014/11/27 v5472 L3 Argument expansion
+L3 Module: l3tl 2015/01/27 v5500 L3 Token lists
+L3 Module: l3str 2015/03/01 v5545 L3 Strings
+L3 Module: l3seq 2014/08/23 v5354 L3 Sequences and stacks
+L3 Module: l3int 2015/02/21 v5529 L3 Integers
+\c_max_int=\count91
+\l_tmpa_int=\count92
+\l_tmpb_int=\count93
+\g_tmpa_int=\count94
+\g_tmpb_int=\count95
+L3 Module: l3quark 2014/08/23 v5354 L3 Quarks
+L3 Module: l3prg 2014/08/23 v5354 L3 Control structures
+\g__prg_map_int=\count96
+L3 Module: l3clist 2014/08/23 v5354 L3 Comma separated lists
+L3 Module: l3token 2014/09/15 v5422 L3 Experimental token manipulation
+L3 Module: l3prop 2014/08/23 v5354 L3 Property lists
+L3 Module: l3msg 2015/02/26 v5537 L3 Messages
+L3 Module: l3file 2014/08/24 v5369 L3 File and I/O operations
+\l_iow_line_count_int=\count97
+\l__iow_target_count_int=\count98
+\l__iow_current_line_int=\count99
+\l__iow_current_word_int=\count100
+\l__iow_current_indentation_int=\count101
+L3 Module: l3skip 2014/08/23 v5354 L3 Dimensions and skips
+\c_zero_dim=\dimen111
+\c_max_dim=\dimen112
+\l_tmpa_dim=\dimen113
+\l_tmpb_dim=\dimen114
+\g_tmpa_dim=\dimen115
+\g_tmpb_dim=\dimen116
+\c_zero_skip=\skip43
+\c_max_skip=\skip44
+\l_tmpa_skip=\skip45
+\l_tmpb_skip=\skip46
+\g_tmpa_skip=\skip47
+\g_tmpb_skip=\skip48
+\c_zero_muskip=\muskip10
+\c_max_muskip=\muskip11
+\l_tmpa_muskip=\muskip12
+\l_tmpb_muskip=\muskip13
+\g_tmpa_muskip=\muskip14
+\g_tmpb_muskip=\muskip15
+L3 Module: l3keys 2015/01/27 v5500 L3 Key-value interfaces
+\g__keyval_level_int=\count102
+\l_keys_choice_int=\count103
+L3 Module: l3fp 2014/08/22 v5336 L3 Floating points
+\c__fp_leading_shift_int=\count104
+\c__fp_middle_shift_int=\count105
+\c__fp_trailing_shift_int=\count106
+\c__fp_big_leading_shift_int=\count107
+\c__fp_big_middle_shift_int=\count108
+\c__fp_big_trailing_shift_int=\count109
+\c__fp_Bigg_leading_shift_int=\count110
+\c__fp_Bigg_middle_shift_int=\count111
+\c__fp_Bigg_trailing_shift_int=\count112
+L3 Module: l3box 2014/08/23 v5354 L3 Experimental boxes
+\c_empty_box=\box28
+\l_tmpa_box=\box29
+\l_tmpb_box=\box30
+\g_tmpa_box=\box31
+\g_tmpb_box=\box32
+L3 Module: l3coffins 2014/08/23 v5354 L3 Coffin code layer
+\l__coffin_internal_box=\box33
+\l__coffin_internal_dim=\dimen117
+\l__coffin_offset_x_dim=\dimen118
+\l__coffin_offset_y_dim=\dimen119
+\l__coffin_x_dim=\dimen120
+\l__coffin_y_dim=\dimen121
+\l__coffin_x_prime_dim=\dimen122
+\l__coffin_y_prime_dim=\dimen123
+\c_empty_coffin=\box34
+\l__coffin_aligned_coffin=\box35
+\l__coffin_aligned_internal_coffin=\box36
+\l_tmpa_coffin=\box37
+\l_tmpb_coffin=\box38
+\l__coffin_display_coffin=\box39
+\l__coffin_display_coord_coffin=\box40
+\l__coffin_display_pole_coffin=\box41
+\l__coffin_display_offset_dim=\dimen124
+\l__coffin_display_x_dim=\dimen125
+\l__coffin_display_y_dim=\dimen126
+L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3candidates 2015/03/01 v5544 L3 Experimental additions to l3kernel
+\l__box_top_dim=\dimen127
+\l__box_bottom_dim=\dimen128
+\l__box_left_dim=\dimen129
+\l__box_right_dim=\dimen130
+\l__box_top_new_dim=\dimen131
+\l__box_bottom_new_dim=\dimen132
+\l__box_left_new_dim=\dimen133
+\l__box_right_new_dim=\dimen134
+\l__box_internal_box=\box42
+\l__coffin_bounding_shift_dim=\dimen135
+\l__coffin_left_corner_dim=\dimen136
+\l__coffin_right_corner_dim=\dimen137
+\l__coffin_bottom_corner_dim=\dimen138
+\l__coffin_top_corner_dim=\dimen139
+\l__coffin_scaled_total_height_dim=\dimen140
+\l__coffin_scaled_width_dim=\dimen141
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/l3unicode-data.def
+File: l3unicode-data.def 2015/03/01 v5544 L3 Unicode data
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+File: l3xdvidpfmx.def 2015/03/01 v5544 L3 Experimental driver: xdvipdfmx
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2014/11/25 v5471 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count113
+\l__xparse_m_args_int=\count114
+\l__xparse_mandatory_args_int=\count115
+\l__xparse_processor_int=\count116
+\l__xparse_v_nesting_int=\count117
+)
+\l_fontspec_script_int=\count118
+\l_fontspec_language_int=\count119
+\l_fontspec_strnum_int=\count120
+\l__fontspec_tmpa_dim=\dimen142
+\l__fontspec_tmpb_dim=\dimen143
+\l__fontspec_tmpc_dim=\dimen144
+Variant \tl_gset:cV already defined; not changing it on line 71
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec-patches.sty
+Package: fontspec-patches 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLa
+TeX
+LaTeX Info: Redefining \em on input line 49.
+LaTeX Info: Redefining \emph on input line 57.
+LaTeX Info: Redefining \- on input line 60.
+.................................................
+. LaTeX info: "xparse/redefine-command"
+. 
+. Redefining command \oldstylenums with sig. 'm' on line 155.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \liningnums with sig. 'm' on line 159.
+.................................................
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLaTe
+X
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1enc.def
+File: eu1enc.def 2010/05/27 v0.1h Experimental Unicode font encodings
+)
+LaTeX Font Info:    Try loading font information for EU1+lmr on input line 105.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmr.fd
+File: eu1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+(/usr/local/texlive/2015/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+File: xunicode.sty 2011/09/09 v0.981 provides access to latin accents and many 
+other characters in Unicode lower plane
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3enc.def
+File: t3enc.def 2001/12/31 T3 encoding
+LaTeX Font Info:    Try loading font information for EU1+lmss on input line 357
+.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmss.fd
+File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+\tipaTiiicode=\count121
+\tipasavetokens=\toks18
+\tipachecktokens=\toks19
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: xetex.def on input line 94.
+
+(/usr/local/texlive/2015/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2015/03/25 v4.04 LaTeX color/graphics driver for XeTeX (TeX Liv
+e/RRM/JK)
+))
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+))
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__fontspec_post_arg:w with sig. 'mmO{}' on line 42.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \fontspec with sig. 'om' on line 44.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmainfont with sig. 'om' on line 54.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setsansfont with sig. 'om' on line 64.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmonofont with sig. 'om' on line 74.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathrm with sig. 'om' on line 88.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setboldmathrm with sig. 'om' on line 96.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathsf with sig. 'om' on line 104.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathtt with sig. 'om' on line 112.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfamily with sig. 'mom' on line 126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontface with sig. 'mom' on line 141.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \defaultfontfeatures with sig. 't+om' on line 155.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeatures with sig. 'm' on line 210.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfeature with sig. 'mm' on line 221.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newAATfeature with sig. 'mmmm' on line 229.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newopentypefeature with sig. 'mmm' on line 237.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeature with sig. 'mm' on line 261.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeatureoption with sig. 'mmm' on line 270.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontscript with sig. 'mm' on line 275.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontlanguage with sig. 'mm' on line 301.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareFontsExtensions with sig. 'm' on line 321.
+.................................................
+Variant \prop_gput:cnV already defined; not changing it on line 704
+Variant \prop_gput:cnx already defined; not changing it on line 705
+\l__fontspec_tmp_int=\count122
+LaTeX Info: Redefining \itshape on input line 2232.
+LaTeX Info: Redefining \slshape on input line 2237.
+LaTeX Info: Redefining \scshape on input line 2242.
+LaTeX Info: Redefining \upshape on input line 2247.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+\g__file_internal_ior=\read1
+\g__fontspec_family_AdobeSongStd_int=\count123
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Heiti Std/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Song Std/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Song Std/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'AdobeSongStd(0)' created for font 'Adobe Song Std' with options
+. [BoldFont=Adobe Heiti Std].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Adobe Song Std/OT:script=latn;language=DFLT;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold' with NFSS spec.:
+. <->"Adobe Heiti Std/OT:script=latn;language=DFLT;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Song Std/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Song Std/B (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Adobe Song Std/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'AdobeSongStd(1)' created for font 'Adobe Song Std' with options
+. [].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Adobe Song Std/OT:script=latn;language=DFLT;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+\g__fontspec_family_TimesNewRoman_int=\count124
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'TimesNewRoman(0)' created for font 'Times New Roman' with
+. options [Ligatures=TeX].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Times New Roman/OT:script=latn;language=DFLT;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold' with NFSS spec.:
+. <->"Times New Roman/B/OT:script=latn;language=DFLT;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'italic' with NFSS spec.:
+. <->"Times New Roman/I/OT:script=latn;language=DFLT;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold italic' with NFSS spec.:
+. <->"Times New Roman/BI/OT:script=latn;language=DFLT;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/xetex/zhspacing/generic/zhspacing.sty
+(/usr/local/texlive/2015/texmf-dist/tex/xetex/zhspacing/generic/zhsusefulmacros
+.sty)
+Package: zhspacing 2012/03/14
+
+(/usr/local/texlive/2015/texmf-dist/tex/xetex/zhspacing/generic/zhsmyclass.sty
+(/usr/local/texlive/2015/texmf-dist/tex/xetex/zhspacing/generic/zhsusefulmacros
+.sty))
+\@@interclasstoks@boundary@boundary=\toks20
+\@@interclasstoks@halfwidth@boundary=\toks21
+\@@interclasstoks@boundary@halfwidth=\toks22
+\@@interclasstoks@halfwidth@halfwidth=\toks23
+\@@interclasstoks@fullwidth@boundary=\toks24
+\@@interclasstoks@boundary@fullwidth=\toks25
+\@@interclasstoks@fullwidth@halfwidth=\toks26
+\@@interclasstoks@halfwidth@fullwidth=\toks27
+\@@interclasstoks@fullwidth@fullwidth=\toks28
+\@@interclasstoks@alphanum@boundary=\toks29
+\@@interclasstoks@boundary@alphanum=\toks30
+\@@interclasstoks@alphanum@halfwidth=\toks31
+\@@interclasstoks@halfwidth@alphanum=\toks32
+\@@interclasstoks@alphanum@fullwidth=\toks33
+\@@interclasstoks@fullwidth@alphanum=\toks34
+\@@interclasstoks@alphanum@alphanum=\toks35
+\@@interclasstoks@hanzi@boundary=\toks36
+\@@interclasstoks@boundary@hanzi=\toks37
+\@@interclasstoks@hanzi@halfwidth=\toks38
+\@@interclasstoks@halfwidth@hanzi=\toks39
+\@@interclasstoks@hanzi@fullwidth=\toks40
+\@@interclasstoks@fullwidth@hanzi=\toks41
+\@@interclasstoks@hanzi@alphanum=\toks42
+\@@interclasstoks@alphanum@hanzi=\toks43
+\@@interclasstoks@hanzi@hanzi=\toks44
+\@@interclasstoks@openfw@boundary=\toks45
+\@@interclasstoks@boundary@openfw=\toks46
+\@@interclasstoks@openfw@halfwidth=\toks47
+\@@interclasstoks@halfwidth@openfw=\toks48
+\@@interclasstoks@openfw@fullwidth=\toks49
+\@@interclasstoks@fullwidth@openfw=\toks50
+\@@interclasstoks@openfw@alphanum=\toks51
+\@@interclasstoks@alphanum@openfw=\toks52
+\@@interclasstoks@openfw@hanzi=\toks53
+\@@interclasstoks@hanzi@openfw=\toks54
+\@@interclasstoks@openfw@openfw=\toks55
+\@@interclasstoks@closefw@boundary=\toks56
+\@@interclasstoks@boundary@closefw=\toks57
+\@@interclasstoks@closefw@halfwidth=\toks58
+\@@interclasstoks@halfwidth@closefw=\toks59
+\@@interclasstoks@closefw@fullwidth=\toks60
+\@@interclasstoks@fullwidth@closefw=\toks61
+\@@interclasstoks@closefw@alphanum=\toks62
+\@@interclasstoks@alphanum@closefw=\toks63
+\@@interclasstoks@closefw@hanzi=\toks64
+\@@interclasstoks@hanzi@closefw=\toks65
+\@@interclasstoks@closefw@openfw=\toks66
+\@@interclasstoks@openfw@closefw=\toks67
+\@@interclasstoks@closefw@closefw=\toks68
+\@@interclasstoks@halfstop@boundary=\toks69
+\@@interclasstoks@boundary@halfstop=\toks70
+\@@interclasstoks@halfstop@halfwidth=\toks71
+\@@interclasstoks@halfwidth@halfstop=\toks72
+\@@interclasstoks@halfstop@fullwidth=\toks73
+\@@interclasstoks@fullwidth@halfstop=\toks74
+\@@interclasstoks@halfstop@alphanum=\toks75
+\@@interclasstoks@alphanum@halfstop=\toks76
+\@@interclasstoks@halfstop@hanzi=\toks77
+\@@interclasstoks@hanzi@halfstop=\toks78
+\@@interclasstoks@halfstop@openfw=\toks79
+\@@interclasstoks@openfw@halfstop=\toks80
+\@@interclasstoks@halfstop@closefw=\toks81
+\@@interclasstoks@closefw@halfstop=\toks82
+\@@interclasstoks@halfstop@halfstop=\toks83
+\@@interclasstoks@fullstop@boundary=\toks84
+\@@interclasstoks@boundary@fullstop=\toks85
+\@@interclasstoks@fullstop@halfwidth=\toks86
+\@@interclasstoks@halfwidth@fullstop=\toks87
+\@@interclasstoks@fullstop@fullwidth=\toks88
+\@@interclasstoks@fullwidth@fullstop=\toks89
+\@@interclasstoks@fullstop@alphanum=\toks90
+\@@interclasstoks@alphanum@fullstop=\toks91
+\@@interclasstoks@fullstop@hanzi=\toks92
+\@@interclasstoks@hanzi@fullstop=\toks93
+\@@interclasstoks@fullstop@openfw=\toks94
+\@@interclasstoks@openfw@fullstop=\toks95
+\@@interclasstoks@fullstop@closefw=\toks96
+\@@interclasstoks@closefw@fullstop=\toks97
+\@@interclasstoks@fullstop@halfstop=\toks98
+\@@interclasstoks@halfstop@fullstop=\toks99
+\@@interclasstoks@fullstop@fullstop=\toks100
+\@@interclasstoks@fwpunct@boundary=\toks101
+\@@interclasstoks@boundary@fwpunct=\toks102
+\@@interclasstoks@fwpunct@halfwidth=\toks103
+\@@interclasstoks@halfwidth@fwpunct=\toks104
+\@@interclasstoks@fwpunct@fullwidth=\toks105
+\@@interclasstoks@fullwidth@fwpunct=\toks106
+\@@interclasstoks@fwpunct@alphanum=\toks107
+\@@interclasstoks@alphanum@fwpunct=\toks108
+\@@interclasstoks@fwpunct@hanzi=\toks109
+\@@interclasstoks@hanzi@fwpunct=\toks110
+\@@interclasstoks@fwpunct@openfw=\toks111
+\@@interclasstoks@openfw@fwpunct=\toks112
+\@@interclasstoks@fwpunct@closefw=\toks113
+\@@interclasstoks@closefw@fwpunct=\toks114
+\@@interclasstoks@fwpunct@halfstop=\toks115
+\@@interclasstoks@halfstop@fwpunct=\toks116
+\@@interclasstoks@fwpunct@fullstop=\toks117
+\@@interclasstoks@fullstop@fwpunct=\toks118
+\@@interclasstoks@fwpunct@fwpunct=\toks119
+\@@interclasstoks@cjkexta@boundary=\toks120
+\@@interclasstoks@boundary@cjkexta=\toks121
+\@@interclasstoks@cjkexta@halfwidth=\toks122
+\@@interclasstoks@halfwidth@cjkexta=\toks123
+\@@interclasstoks@cjkexta@fullwidth=\toks124
+\@@interclasstoks@fullwidth@cjkexta=\toks125
+\@@interclasstoks@cjkexta@alphanum=\toks126
+\@@interclasstoks@alphanum@cjkexta=\toks127
+\@@interclasstoks@cjkexta@hanzi=\toks128
+\@@interclasstoks@hanzi@cjkexta=\toks129
+\@@interclasstoks@cjkexta@openfw=\toks130
+\@@interclasstoks@openfw@cjkexta=\toks131
+\@@interclasstoks@cjkexta@closefw=\toks132
+\@@interclasstoks@closefw@cjkexta=\toks133
+\@@interclasstoks@cjkexta@halfstop=\toks134
+\@@interclasstoks@halfstop@cjkexta=\toks135
+\@@interclasstoks@cjkexta@fullstop=\toks136
+\@@interclasstoks@fullstop@cjkexta=\toks137
+\@@interclasstoks@cjkexta@fwpunct=\toks138
+\@@interclasstoks@fwpunct@cjkexta=\toks139
+\@@interclasstoks@cjkexta@cjkexta=\toks140
+\@@interclasstoks@cjkextb@boundary=\toks141
+\@@interclasstoks@boundary@cjkextb=\toks142
+\@@interclasstoks@cjkextb@halfwidth=\toks143
+\@@interclasstoks@halfwidth@cjkextb=\toks144
+\@@interclasstoks@cjkextb@fullwidth=\toks145
+\@@interclasstoks@fullwidth@cjkextb=\toks146
+\@@interclasstoks@cjkextb@alphanum=\toks147
+\@@interclasstoks@alphanum@cjkextb=\toks148
+\@@interclasstoks@cjkextb@hanzi=\toks149
+\@@interclasstoks@hanzi@cjkextb=\toks150
+\@@interclasstoks@cjkextb@openfw=\toks151
+\@@interclasstoks@openfw@cjkextb=\toks152
+\@@interclasstoks@cjkextb@closefw=\toks153
+\@@interclasstoks@closefw@cjkextb=\toks154
+\@@interclasstoks@cjkextb@halfstop=\toks155
+\@@interclasstoks@halfstop@cjkextb=\toks156
+\@@interclasstoks@cjkextb@fullstop=\toks157
+\@@interclasstoks@fullstop@cjkextb=\toks158
+\@@interclasstoks@cjkextb@fwpunct=\toks159
+\@@interclasstoks@fwpunct@cjkextb=\toks160
+\@@interclasstoks@cjkextb@cjkexta=\toks161
+\@@interclasstoks@cjkexta@cjkextb=\toks162
+\@@interclasstoks@cjkextb@cjkextb=\toks163
+\n=\count125
+\@@interclasstoks@longpunct@boundary=\toks164
+\@@interclasstoks@boundary@longpunct=\toks165
+\@@interclasstoks@longpunct@halfwidth=\toks166
+\@@interclasstoks@halfwidth@longpunct=\toks167
+\@@interclasstoks@longpunct@fullwidth=\toks168
+\@@interclasstoks@fullwidth@longpunct=\toks169
+\@@interclasstoks@longpunct@alphanum=\toks170
+\@@interclasstoks@alphanum@longpunct=\toks171
+\@@interclasstoks@longpunct@hanzi=\toks172
+\@@interclasstoks@hanzi@longpunct=\toks173
+\@@interclasstoks@longpunct@openfw=\toks174
+\@@interclasstoks@openfw@longpunct=\toks175
+\@@interclasstoks@longpunct@closefw=\toks176
+\@@interclasstoks@closefw@longpunct=\toks177
+\@@interclasstoks@longpunct@halfstop=\toks178
+\@@interclasstoks@halfstop@longpunct=\toks179
+\@@interclasstoks@longpunct@fullstop=\toks180
+\@@interclasstoks@fullstop@longpunct=\toks181
+\@@interclasstoks@longpunct@fwpunct=\toks182
+\@@interclasstoks@fwpunct@longpunct=\toks183
+\@@interclasstoks@longpunct@cjkexta=\toks184
+\@@interclasstoks@cjkexta@longpunct=\toks185
+\@@interclasstoks@longpunct@cjkextb=\toks186
+\@@interclasstoks@cjkextb@longpunct=\toks187
+\@@interclasstoks@longpunct@longpunct=\toks188
+\@@interclasstoks@hwpunct@boundary=\toks189
+\@@interclasstoks@boundary@hwpunct=\toks190
+\@@interclasstoks@hwpunct@halfwidth=\toks191
+\@@interclasstoks@halfwidth@hwpunct=\toks192
+\@@interclasstoks@hwpunct@fullwidth=\toks193
+\@@interclasstoks@fullwidth@hwpunct=\toks194
+\@@interclasstoks@hwpunct@alphanum=\toks195
+\@@interclasstoks@alphanum@hwpunct=\toks196
+\@@interclasstoks@hwpunct@hanzi=\toks197
+\@@interclasstoks@hanzi@hwpunct=\toks198
+\@@interclasstoks@hwpunct@openfw=\toks199
+\@@interclasstoks@openfw@hwpunct=\toks200
+\@@interclasstoks@hwpunct@closefw=\toks201
+\@@interclasstoks@closefw@hwpunct=\toks202
+\@@interclasstoks@hwpunct@halfstop=\toks203
+\@@interclasstoks@halfstop@hwpunct=\toks204
+\@@interclasstoks@hwpunct@fullstop=\toks205
+\@@interclasstoks@fullstop@hwpunct=\toks206
+\@@interclasstoks@hwpunct@fwpunct=\toks207
+\@@interclasstoks@fwpunct@hwpunct=\toks208
+\@@interclasstoks@hwpunct@cjkexta=\toks209
+\@@interclasstoks@cjkexta@hwpunct=\toks210
+\@@interclasstoks@hwpunct@cjkextb=\toks211
+\@@interclasstoks@cjkextb@hwpunct=\toks212
+\@@interclasstoks@hwpunct@longpunct=\toks213
+\@@interclasstoks@longpunct@hwpunct=\toks214
+\@@interclasstoks@hwpunct@hwpunct=\toks215
+\zhs@tmpcnt=\count126
+) zhspacing installed.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count127
+\lst@gtempboxa=\box43
+\lst@token=\toks216
+\lst@length=\count128
+\lst@currlwidth=\dimen147
+\lst@column=\count129
+\lst@pos=\count130
+\lst@lostspace=\dimen148
+\lst@width=\dimen149
+\lst@newlines=\count131
+\lst@lineno=\count132
+\lst@maxwidth=\dimen150
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count133
+\lst@skipnumbers=\count134
+\lst@framebox=\box44
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip49
+\fb@frw=\dimen151
+\fb@frh=\dimen152
+\FrameRule=\dimen153
+\FrameSep=\dimen154
+)
+
+LaTeX Warning: Unused global option(s):
+    [9pt].
+
+(./part-2.aux)
+\openout1 = `part-2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 51.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 51.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3cmr.fd
+File: t3cmr.fd 2001/12/31 TIPA font definitions
+)
+LaTeX Font Info:    ... okay on input line 51.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=417.1175pt
+* \textheight=682.86613pt
+* \oddsidemargin=17.92537pt
+* \evensidemargin=17.92537pt
+* \topmargin=-91.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+.................................................
+. fontspec info: "setup-math"
+. 
+. Adjusting the maths setup (use [no-math] to avoid this).
+.................................................
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 51.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 51.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 51.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 51.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 51.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 51.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 51.
+LaTeX Font Info:    Redeclaring math accent \check on input line 51.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 51.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 51.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 51.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 51.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 51.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> EU1/TimesNewRoman(0)/m/n on input line 
+51.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 51.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> EU1/TimesNewRoman(0)/m/n on input line
+ 51.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  EU1/TimesNewRoman(0)/m/n --> EU1/TimesNewRoman(0)/m/n o
+n input line 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> EU1/TimesNewRoman(0)/m/it on input lin
+e 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> EU1/TimesNewRoman(0)/bx/n on input lin
+e 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 51.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  EU1/TimesNewRoman(0)/m/n --> EU1/TimesNewRoman(0)/bx/n 
+on input line 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> EU1/TimesNewRoman(0)/bx/it on input l
+ine 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 51.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 51.
+\c@lstlisting=\count135
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 70.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 70.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 70.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 70.
+[1
+
+] (./part-2.aux) ) 
+Here is how much of TeX's memory you used:
+ 15414 strings out of 493706
+ 317566 string characters out of 6145769
+ 347993 words of memory out of 5000000
+ 18658 multiletter control sequences out of 15000+600000
+ 6576 words of font info for 48 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 46i,11n,59p,10420b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on part-2.pdf (1 page).

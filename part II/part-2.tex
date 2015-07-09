@@ -1,0 +1,84 @@
+\documentclass[9pt,a4paper]{article}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{float}
+\usepackage{fontspec}
+\newfontfamily\zhfont[BoldFont=Adobe Heiti Std]{Adobe Song Std}
+\newfontfamily\zhpunctfont{Adobe Song Std}
+\setmainfont{Times New Roman}
+\usepackage{indentfirst}
+\usepackage{zhspacing}
+\zhspacing
+
+\usepackage{listings}
+\lstset{
+	frame=shadowbox,
+	basicstyle=\footnotesize,
+	numbers=left,
+	numberstyle=\footnotesize,
+	tabsize=2,
+	breaklines=true,
+	xleftmargin=2em,
+	xrightmargin=2em,
+	aboveskip=1em,
+	showspaces=false
+	}
+	
+\usepackage{framed}   
+%%%% 段落首行缩进两个字 %%%%
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+\setlength{\parindent}{2em}  %中文缩进两个汉字位
+
+
+%%%% 下面的命令重定义页面边距，使其符合中文刊物习惯 %%%%
+\addtolength{\topmargin}{-54pt}
+\setlength{\oddsidemargin}{0.63cm}  % 3.17cm - 1 inch
+\setlength{\evensidemargin}{\oddsidemargin}
+\setlength{\textwidth}{14.66cm}
+\setlength{\textheight}{24.00cm}    % 24.62
+
+%%%% 下面的命令设置行间距与段落间距 %%%%
+\linespread{1.4}
+% \setlength{\parskip}{1ex}
+\setlength{\parskip}{0.5\baselineskip}
+
+
+\begin{document}
+	
+%%%% 重定义 %%%%
+\renewcommand{\contentsname}{目录}  % 将Contents改为目录
+\renewcommand{\abstractname}{摘要}  % 将Abstract改为摘要
+\renewcommand{\refname}{参考文献}   % 将References改为参考文献
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{附录}
+%\renewcommand{\algorithm}{算法}
+	
+	
+%%%% 定义标题格式，包括title，author，affiliation，email等 %%%%
+\title{RGB-D SLAM入门 \\ RGB-D SLAM Tutorial \\
+	第二讲~~从图像到点云}
+\author{高~翔\footnote{Email: gaoxiang12@mails.tsinghua.edu.cn}\\[2ex]
+	 清华大学自动化系\\[2ex]
+}
+\maketitle
+
+\section{读取图像}
+小萝卜：师兄我又来了！今天说好了要读图了，你可别再偷懒了！
+
+师兄：好好好，我们这就来读。
+
+趁着你对cmake的知识还没忘，我们在
+
+\begin{framed}
+未完待续	
+\end{framed}
+	
+
+\end{document}
