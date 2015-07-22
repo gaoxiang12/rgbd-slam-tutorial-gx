@@ -1,0 +1,15 @@
+# 这是一个参数文件
+# 去你妹的yaml! 我再也不用yaml了！简简单单多好！
+
+# part 4 里定义的参数
+
+detector=SIFT
+descriptor=SIFT
+good_match_threshold=4
+
+# camera
+camera.cx=325.5;
+camera.cy=253.5;
+camera.fx=518.0;
+camera.fy=519.0;
+camera.scale=1000.0;
