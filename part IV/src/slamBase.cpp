@@ -139,12 +139,8 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
     cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
 
     RESULT_OF_PNP result;
-    // 当心这个clone!! 很坑的！
-    // 不用clone，r,t里的值会被当作局部变量扔掉，返回的时候就没有值了
     result.rvec = rvec;
     result.tvec = tvec;
-    //result.rvec = rvec.clone();
-    //result.tvec = tvec.clone();
     result.inliers = inliers.rows;
 
     return result;

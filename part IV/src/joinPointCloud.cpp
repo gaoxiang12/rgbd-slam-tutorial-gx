@@ -32,14 +32,6 @@ int main( int argc, char** argv )
     frame2.rgb = cv::imread( "./data/rgb2.png" );
     frame2.depth = cv::imread( "./data/depth2.png", -1 );
 
-    //cv::imshow("rgb1", frame1.rgb );
-    //cv::waitKey(0);
-    //cv::imshow("rgb2", frame2.rgb );
-    //cv::waitKey(0);
-    //cv::imshow("depth1", frame1.depth );
-    //cv::waitKey(0);
-    //cv::imshow("depth2", frame2.depth );
-    //cv::waitKey(0);
     // 提取特征并计算描述子
     cout<<"extracting features"<<endl;
     string detecter = pd.getData( "detector" );
