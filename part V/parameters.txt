@@ -21,9 +21,9 @@ camera.scale=1000.0;
 start_index=1
 end_index=700
 # 数据所在目录
-rgb_dir=../data/rgb_png/
+rgb_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/rgb_png/
 rgb_extension=.png
-depth_dir=../data/depth_png/
+depth_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/depth_png/
 depth_extension=.png
 # 点云分辨率
 voxel_grid=0.02
@@ -34,4 +34,4 @@ min_good_match=10
 # 最小内点
 min_inliers=5
 # 最大运动误差
-max_norm=0.1
+max_norm=0.3
