@@ -1,0 +1,1 @@
+g++     -Wno-deprecated -g     CMakeFiles/main.dir/main.cpp.o  -o ../../bin/main -rdynamic -L"/home/zero/Code/rgbd-slam-tutorial-gx/part V/lib" 

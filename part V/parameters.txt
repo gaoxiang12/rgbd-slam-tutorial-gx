@@ -18,7 +18,7 @@ camera.scale=1000.0;
 # part 5 
 # 数据相关
 # 起始与终止索引
-start_index=1
+start_index=150
 end_index=700
 # 数据所在目录
 rgb_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/rgb_png/
@@ -26,7 +26,7 @@ rgb_extension=.png
 depth_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/depth_png/
 depth_extension=.png
 # 点云分辨率
-voxel_grid=0.02
+voxel_grid=0.01
 # 是否实时可视化
 visualize_pointcloud=yes
 # 最小匹配数量

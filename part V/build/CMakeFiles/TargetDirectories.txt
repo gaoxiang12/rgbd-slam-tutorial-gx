@@ -1,0 +1,6 @@
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/detectFeatures.dir
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/generate_pointcloud.dir
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/joinPointCloud.dir
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/main.dir
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/slambase.dir
+/home/zero/Code/rgbd-slam-tutorial-gx/part V/build/src/CMakeFiles/visualOdometry.dir
