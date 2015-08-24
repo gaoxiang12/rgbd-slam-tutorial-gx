@@ -28,7 +28,7 @@ using namespace std;
 #include <g2o/core/robust_kernel_factory.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
 
-
+// 把g2o的定义放到前面
 typedef g2o::BlockSolver_6_3 SlamBlockSolver; 
 typedef g2o::LinearSolverCSparse< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
 
@@ -37,15 +37,15 @@ FRAME readFrame( int index, ParameterReader& pd );
 // 估计一个运动的大小
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
 
-enum CHECK_RESULT {NOT_MATCHED=0, TOO_FAR_AWAY, TOO_CLOSE, KEYFRAME}; // ckeck two keyframes
-
+// 检测两个帧，结果定义
+enum CHECK_RESULT {NOT_MATCHED=0, TOO_FAR_AWAY, TOO_CLOSE, KEYFRAME}; 
+// 函数声明
 CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, bool is_loops=false );
-
+// 检测近距离的回环
 void checkNearbyLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
-
+// 随机检测回环
 void checkRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
 
-g2o::RobustKernel* robustKernel;
 int main( int argc, char** argv )
 {
     // 前面部分和vo是一样的
@@ -53,7 +53,7 @@ int main( int argc, char** argv )
     int startIndex  =   atoi( pd.getData( "start_index" ).c_str() );
     int endIndex    =   atoi( pd.getData( "end_index"   ).c_str() );
 
-    // newly updated
+    // 所有的关键帧都放在了这里
     vector< FRAME > keyframes; 
     // initialize
     cout<<"Initializing ..."<<endl;
@@ -69,8 +69,6 @@ int main( int argc, char** argv )
     /******************************* 
     // 新增:有关g2o的初始化
     *******************************/
-    // 选择优化方法
-
     // 初始化求解器
     SlamLinearSolver* linearSolver = new SlamLinearSolver();
     linearSolver->setBlockOrdering( false );
@@ -82,7 +80,6 @@ int main( int argc, char** argv )
     // 不要输出调试信息
     globalOptimizer.setVerbose( false );
     
-    robustKernel = g2o::RobustKernelFactory::instance()->construct( "Cauchy" );
 
     // 向globalOptimizer增加第一个顶点
     g2o::VertexSE3* v = new g2o::VertexSE3();
@@ -100,28 +97,32 @@ int main( int argc, char** argv )
     {
         cout<<"Reading files "<<currIndex<<endl;
         FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
-        computeKeyPointsAndDesp( currFrame, detector, descriptor );
-        CHECK_RESULT result = checkKeyframes( keyframes.back(), currFrame, globalOptimizer );
-        switch (result)
+        computeKeyPointsAndDesp( currFrame, detector, descriptor ); //提取特征
+        CHECK_RESULT result = checkKeyframes( keyframes.back(), currFrame, globalOptimizer ); //匹配该帧与keyframes里最后一帧
+        switch (result) // 根据匹配结果不同采取不同策略
         {
         case NOT_MATCHED:
+            //没匹配上，直接跳过
             cout<<RED"Not enough inliers."<<endl;
             break;
         case TOO_FAR_AWAY:
+            // 太近了，也直接跳
             cout<<RED"Too far away, may be an error."<<endl;
             break;
         case TOO_CLOSE:
+            // 太远了，可能出错了
             cout<<RESET"Too close, not a keyframe"<<endl;
             break;
         case KEYFRAME:
             cout<<GREEN"This is a new keyframe"<<endl;
+            // 不远不近，刚好
             /**
              * This is important!!
              * This is important!!
              * This is important!!
              * (very important so I've said three times!)
              */
-            // loops
+            // 检测回环
             if (check_loop_closure)
             {
                 checkNearbyLoops( keyframes, currFrame, globalOptimizer );
@@ -135,7 +136,7 @@ int main( int argc, char** argv )
         
     }
 
-    // 优化所有边
+    // 优化
     cout<<RESET"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
     globalOptimizer.save("./data/result_before.g2o");
     globalOptimizer.initializeOptimization();
@@ -143,28 +144,31 @@ int main( int argc, char** argv )
     globalOptimizer.save( "./data/result_after.g2o" );
     cout<<"Optimization done."<<endl;
 
-    // save the point cloud
+    // 拼接点云地图
     cout<<"saving the point cloud map..."<<endl;
-    PointCloud::Ptr output ( new PointCloud() );
+    PointCloud::Ptr output ( new PointCloud() ); //全局地图
     PointCloud::Ptr tmp ( new PointCloud() );
 
-    pcl::VoxelGrid<PointT> voxel;
-    pcl::PassThrough<PointT> pass;
+    pcl::VoxelGrid<PointT> voxel; // 网格滤波器，调整地图分辨率
+    pcl::PassThrough<PointT> pass; // z方向区间滤波器，由于rgbd相机的有效深度区间有限，把太远的去掉
     pass.setFilterFieldName("z");
-    pass.setFilterLimits( 0.0, 4.0 );
+    pass.setFilterLimits( 0.0, 4.0 ); //4m以上就不要了
 
-    double gridsize = atof( pd.getData( "voxel_grid" ).c_str() );
+    double gridsize = atof( pd.getData( "voxel_grid" ).c_str() ); //分辨图可以在parameters.txt里调
     voxel.setLeafSize( gridsize, gridsize, gridsize );
 
     for (size_t i=0; i<keyframes.size(); i++)
     {
+        // 从g2o里取出一帧
         g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[i].frameID ));
-        Eigen::Isometry3d pose = vertex->estimate();
-        PointCloud::Ptr newCloud = image2PointCloud( keyframes[i].rgb, keyframes[i].depth, camera );
+        Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
+        PointCloud::Ptr newCloud = image2PointCloud( keyframes[i].rgb, keyframes[i].depth, camera ); //转成点云
+        // 以下是滤波
         voxel.setInputCloud( newCloud );
         voxel.filter( *tmp );
         pass.setInputCloud( tmp );
         pass.filter( *newCloud );
+        // 把点云变换后加入全局地图中
         pcl::transformPointCloud( *newCloud, *tmp, pose.matrix() );
         *output += *tmp;
         tmp->clear();
@@ -173,6 +177,7 @@ int main( int argc, char** argv )
 
     voxel.setInputCloud( output );
     voxel.filter( *tmp );
+    //存储
     pcl::io::savePCDFile( "./data/result.pcd", *tmp );
     
     cout<<"Final map is saved."<<endl;
@@ -219,6 +224,7 @@ CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, b
     static double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
     static double max_norm_lp = atof( pd.getData("max_norm_lp").c_str() );
     static CAMERA_INTRINSIC_PARAMETERS camera = getDefaultCamera();
+    static g2o::RobustKernel* robustKernel = g2o::RobustKernelFactory::instance()->construct( "Cauchy" );
     // 比较f1 和 f2
     RESULT_OF_PNP result = estimateMotion( f1, f2, camera );
     if ( result.inliers < min_inliers ) //inliers不够，放弃该帧
@@ -276,6 +282,7 @@ void checkNearbyLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptim
     static ParameterReader pd;
     static int nearby_loops = atoi( pd.getData("nearby_loops").c_str() );
     
+    // 就是把currFrame和 frames里末尾几个测一遍
     if ( frames.size() <= nearby_loops )
     {
         // no enough keyframes, check everyone
@@ -299,6 +306,7 @@ void checkRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptim
     static ParameterReader pd;
     static int random_loops = atoi( pd.getData("random_loops").c_str() );
     srand( (unsigned int) time(NULL) );
+    // 随机取一些帧进行检测
     
     if ( frames.size() <= random_loops )
     {
