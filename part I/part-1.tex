@@ -5,27 +5,23 @@
 \usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
 \usepackage{float}
 \usepackage{fontspec}
-\newfontfamily\zhfont[BoldFont=Adobe Heiti Std]{Adobe Song Std}
-\newfontfamily\zhpunctfont{Adobe Song Std}
-\setmainfont{Times New Roman}
+\newfontfamily{WenQuanYi Micro Hei}
+\newfontfamily{WenQuanYi Zen Hei}
 \usepackage{indentfirst}
-\usepackage{zhspacing}
-\zhspacing
-
 \usepackage{listings}
 \lstset{
-	frame=shadowbox,
-	basicstyle=\footnotesize,
-	numbers=left,
-	numberstyle=\footnotesize,
-	tabsize=2,
-	breaklines=true,
-	xleftmargin=2em,
-	xrightmargin=2em,
-	aboveskip=1em,
-	showspaces=false
-	}
-	
+    frame=shadowbox,
+    basicstyle=\footnotesize,
+    numbers=left,
+    numberstyle=\footnotesize,
+    tabsize=2,
+    breaklines=true,
+    xleftmargin=2em,
+    xrightmargin=2em,
+    aboveskip=1em,
+    showspaces=false
+    }
+    
 \usepackage{framed}   
 %%%% 段落首行缩进两个字 %%%%
 \makeatletter
@@ -49,7 +45,7 @@
 
 
 \begin{document}
-	
+    
 %%%% 重定义 %%%%
 \renewcommand{\contentsname}{目录}  % 将Contents改为目录
 \renewcommand{\abstractname}{摘要}  % 将Abstract改为摘要
@@ -59,13 +55,13 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\appendixname}{附录}
 %\renewcommand{\algorithm}{算法}
-	
-	
+    
+    
 %%%% 定义标题格式，包括title，author，affiliation，email等 %%%%
 \title{RGB-D SLAM入门 \\ RGB-D SLAM Tutorial \\
-	第一讲~~预备知识与cmake}
+    第一讲~~预备知识与cmake}
 \author{高~翔\footnote{Email: gaoxiang12@mails.tsinghua.edu.cn}\\[2ex]
-	 清华大学自动化系\\[2ex]
+     清华大学自动化系\\[2ex]
 }
 \maketitle
 
@@ -104,18 +100,18 @@ SLAM，即Simultaneous Localization and Mapping，中文译作同时定位与地
 -答案是：为了更深的理解。
 
 \begin{enumerate}
-	\item 一个完整的程序含有大量的算法与GUI的代码，你读一遍需要多久？弄清楚原理要多久？
-	\item 别人工具都做好了，代码都写完了，参数也调好了，你拿过来运行。效果是看出来了，然而接下来怎么办？
-	\item 你迟早要自己写代码。
+    \item 一个完整的程序含有大量的算法与GUI的代码，你读一遍需要多久？弄清楚原理要多久？
+    \item 别人工具都做好了，代码都写完了，参数也调好了，你拿过来运行。效果是看出来了，然而接下来怎么办？
+    \item 你迟早要自己写代码。
 \end{enumerate}
 
 另一方面，自己写程序，不代表要用C++实现矩阵的线性代数。基本的库我们还是会用的。
 
 我们要用的库：
 \begin{itemize}
-	\item OpenCV.
-	\item PCL.
-	\item g2o等其他的库，用到了再讲怎么装。
+    \item OpenCV.
+    \item PCL.
+    \item g2o等其他的库，用到了再讲怎么装。
 \end{itemize}
 
 编程环境是ubuntu 12.04。建议读者和我们使用一样或类似的环境。如果你\textbf{就是}要用Arch/Fedora/Mac……请你自己配环境。
@@ -125,68 +121,68 @@ SLAM，即Simultaneous Localization and Mapping，中文译作同时定位与地
 
 步骤：
 \begin{itemize}
-	\item 下载OpenCV源代码： http://opencv.org/downloads.html。目前（2015.6）较好的版本是2.4系列，因为3.0系列还不完善（主要是没文档）。请把它下载到电脑上随意一个目录下。
-	\item 在下载过程中，你可以安装依赖项。基本的依赖项是底下那些，直接拷贝到终端执行。
-	\begin{lstlisting}[language=sh]
-		sudo apt-get install build-essential libgtk2.0-dev libjpeg-dev libtiff4-dev libjasper-dev libopenexr-dev cmake python-dev python-numpy python-tk libtbb-dev libeigen2-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev libqt4-dev libqt4-opengl-dev sphinx-common texlive-latex-extra libv4l-dev libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev
-	\end{lstlisting}
-	
-	\item 把OpenCV解压到下载目录中，用cmake编译再安装：
-	\begin{lstlisting}[language=sh]
-		mkdir build
-		cd build
-		cmake ..
-		make
-		sudo make install
-	\end{lstlisting}
-	
-	编译过程需要一点时间，长短视你机器的配置而定。慢一点的可能一下午就过去了，请顺便找点其他事干干例如看场电影之类的。
-	
-	小萝卜：装完之后OpenCV在哪里呢？
-	
-	师兄：头文件在/usr/local/include/，里面有opencv和opencv2的头文件。我们基本只用opencv2啦。
-	
-	小萝卜：有2谁还用1啊。
-	
-	师兄：库文件就在/usr/local/lib/下面，当然这些在install的时候都是可以改动的，我列的是默认位置。
-	
-	小萝卜：师兄！刚才用的cmake是什么东西啊？
-	
-	师兄：cmake就是linux下的C++管理工具啦。简单的代码你可以用g++一条条敲，再多些可以用Makefile来管理，cmake就是自动生成makefile的工具，比makefile集成度更高一些。
-	
-	小萝卜：哦好的！我懂了师兄！请我吃饭哦！
-	
-	师兄：好！
-	
-	\item PCL
-	
-	PCL就是Point Cloud Library啦，处理点云的必备工具。
-	
-	小萝卜：师兄！为什么要处理点云？
-	
-	师兄：啊……忘了说了，这篇文档是讲RGB-D SLAM的呀，深度相机采出来的本来就是点云数据啦。
-	
-	小萝卜：这么重要的事情为什么你不放到开头去讲啊！
-	
-	师兄：我忘了……
-	
-	不管如何，PCL官网(http://pointclouds.org)上已经给出了ubuntu的安装方法。因为很多开发工具在ubuntu上装起来最方便，也比较适合小萝卜这种新手，所以我们才选用了ubuntu。
-	
-	要装PCL，请敲以下代码：
-	\begin{lstlisting}[language=sh]
-	sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
-	sudo apt-get update
-	sudo apt-get install libpcl-all
-	\end{lstlisting}
-	
-	那么，类似的，你能否找到PCL的头文件以及库文件的安装目录呢？
-	\begin{framed}  
-	\subsection*{小作业}
-	请找到PCL的头文件与库文件的安装目录。
-	\end{framed}
-	
-	
-	
+    \item 下载OpenCV源代码： http://opencv.org/downloads.html。目前（2015.6）较好的版本是2.4系列，因为3.0系列还不完善（主要是没文档）。请把它下载到电脑上随意一个目录下。
+    \item 在下载过程中，你可以安装依赖项。基本的依赖项是底下那些，直接拷贝到终端执行。
+    \begin{lstlisting}[language=sh]
+        sudo apt-get install build-essential libgtk2.0-dev libjpeg-dev libtiff4-dev libjasper-dev libopenexr-dev cmake python-dev python-numpy python-tk libtbb-dev libeigen2-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev libqt4-dev libqt4-opengl-dev sphinx-common texlive-latex-extra libv4l-dev libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev
+    \end{lstlisting}
+    
+    \item 把OpenCV解压到下载目录中，用cmake编译再安装：
+    \begin{lstlisting}[language=sh]
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+    \end{lstlisting}
+    
+    编译过程需要一点时间，长短视你机器的配置而定。慢一点的可能一下午就过去了，请顺便找点其他事干干例如看场电影之类的。
+    
+    小萝卜：装完之后OpenCV在哪里呢？
+    
+    师兄：头文件在/usr/local/include/，里面有opencv和opencv2的头文件。我们基本只用opencv2啦。
+    
+    小萝卜：有2谁还用1啊。
+    
+    师兄：库文件就在/usr/local/lib/下面，当然这些在install的时候都是可以改动的，我列的是默认位置。
+    
+    小萝卜：师兄！刚才用的cmake是什么东西啊？
+    
+    师兄：cmake就是linux下的C++管理工具啦。简单的代码你可以用g++一条条敲，再多些可以用Makefile来管理，cmake就是自动生成makefile的工具，比makefile集成度更高一些。
+    
+    小萝卜：哦好的！我懂了师兄！请我吃饭哦！
+    
+    师兄：好！
+    
+    \item PCL
+    
+    PCL就是Point Cloud Library啦，处理点云的必备工具。
+    
+    小萝卜：师兄！为什么要处理点云？
+    
+    师兄：啊……忘了说了，这篇文档是讲RGB-D SLAM的呀，深度相机采出来的本来就是点云数据啦。
+    
+    小萝卜：这么重要的事情为什么你不放到开头去讲啊！
+    
+    师兄：我忘了……
+    
+    不管如何，PCL官网(http://pointclouds.org)上已经给出了ubuntu的安装方法。因为很多开发工具在ubuntu上装起来最方便，也比较适合小萝卜这种新手，所以我们才选用了ubuntu。
+    
+    要装PCL，请敲以下代码：
+    \begin{lstlisting}[language=sh]
+    sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+    sudo apt-get update
+    sudo apt-get install libpcl-all
+    \end{lstlisting}
+    
+    那么，类似的，你能否找到PCL的头文件以及库文件的安装目录呢？
+    \begin{framed}  
+    \subsection*{小作业}
+    请找到PCL的头文件与库文件的安装目录。
+    \end{framed}
+    
+    
+    
 \end{itemize}
 
 小萝卜：师兄你写东西废话还是这么多~
@@ -211,10 +207,10 @@ SLAM，即Simultaneous Localization and Mapping，中文译作同时定位与地
 Linux下的CMake项目通常由几个文件夹组成。例如我们今天讲的slam，你可以在机器上建一个叫slam的文件夹（注意：这个文件夹就是你代码的根目录了！）。然后往里面建几个子文件夹：
 \begin{framed}
 \begin{description}
-	\item{bin} 用来放编译好的可执行二进制文件。
-	\item{src} 用来放源代码。
-	\item{lib} 用来放编译好的库文件。
-	\item{include} 用来放头文件。
+    \item{bin} 用来放编译好的可执行二进制文件。
+    \item{src} 用来放源代码。
+    \item{lib} 用来放编译好的库文件。
+    \item{include} 用来放头文件。
 \end{description}
 \end{framed}
 为什么要用这种目录结构呢？其实这是一种编译习惯，当然你可以把所有文件都搁一个目录里，但是这样看起来很乱不是么。通常我们把源代码和编译好的东西分开。如果源代码比较多，还会按模板分开。像opencv和pcl的代码就是由好多个模块组成的。
@@ -227,25 +223,25 @@ touch CMakeLists.txt
 
 打开此文件，写入：
 \begin{lstlisting}[language=sh]
-	
-	CMAKE_MINIMUM_REQUIRED( VERSION 2.8 ) #设定版本
-	PROJECT( slam ) #设定工程名
-	SET( CMAKE_CXX_COMPILER "g++") #设定编译器
-	
-	#设定可执行二进制文件的目录
-	SET( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) 
-	
-	#设定存放编译出来的库文件的目录
-	SET( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib) 
-	#并且把该目录设为连接目录
-	LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib)
-	
-	#设定头文件目录
-	INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
-	
-	#增加子文件夹，也就是进入源代码文件夹继续构建
-	ADD_SUBDIRECTORY( ${PROJECT_SOURCE_DIR}/src)
-	
+    
+    CMAKE_MINIMUM_REQUIRED( VERSION 2.8 ) #设定版本
+    PROJECT( slam ) #设定工程名
+    SET( CMAKE_CXX_COMPILER "g++") #设定编译器
+    
+    #设定可执行二进制文件的目录
+    SET( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) 
+    
+    #设定存放编译出来的库文件的目录
+    SET( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib) 
+    #并且把该目录设为连接目录
+    LINK_DIRECTORIES( ${PROJECT_SOURCE_DIR}/lib)
+    
+    #设定头文件目录
+    INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
+    
+    #增加子文件夹，也就是进入源代码文件夹继续构建
+    ADD_SUBDIRECTORY( ${PROJECT_SOURCE_DIR}/src)
+    
 \end{lstlisting}
 
 井号后面的是我的注释，只是为了帮助你理解，你可以不敲。通过这个文件，你应该了解了CMakeLists.txt的一些基本的用法。如果你想找一个系统的介绍，附件里提供了《CMake实践》电子书，我认为是一个不错的参考资料。
@@ -263,8 +259,8 @@ touch CMakeLists.txt
 
 int main(int argc, char**argv)
 {
-	std::cout<<"Hello SLAM!"<<std::endl;
-	return 0;
+    std::cout<<"Hello SLAM!"<<std::endl;
+    return 0;
 }
 \end{lstlisting}
 
@@ -309,8 +305,8 @@ make
 小萝卜：听起来不难啊，那下一讲再见啦！
 
 \begin{framed}
-未完待续	
+未完待续    
 \end{framed}
-	
+    
 
 \end{document}
