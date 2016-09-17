@@ -16,9 +16,9 @@ LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
 # 因为g2o不是常用库，要添加它的findg2o.cmake文件
 LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
 SET( G2O_ROOT /usr/local/include/g2o )
-FIND_PACKAGE( G2O )
+FIND_PACKAGE( G2O REQUIRED )
 # CSparse
-FIND_PACKAGE( CSparse )
+FIND_PACKAGE( CSparse REQUIRED )
 INCLUDE_DIRECTORIES( ${G2O_INCLUDE_DIR} ${CSPARSE_INCLUDE_DIR} )
 
 ADD_EXECUTABLE( generate_pointcloud generatePointCloud.cpp )
