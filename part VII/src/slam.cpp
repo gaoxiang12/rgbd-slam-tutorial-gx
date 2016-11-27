@@ -23,14 +23,14 @@ using namespace std;
 #include <g2o/core/factory.h>
 #include <g2o/core/optimization_algorithm_factory.h>
 #include <g2o/core/optimization_algorithm_gauss_newton.h>
-#include <g2o/solvers/csparse/linear_solver_csparse.h>
+#include <g2o/solvers/eigen/linear_solver_eigen.h>
 #include <g2o/core/robust_kernel.h>
-#include <g2o/core/robust_kernel_factory.h>
+#include <g2o/core/robust_kernel_impl.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
 
 // 把g2o的定义放到前面
 typedef g2o::BlockSolver_6_3 SlamBlockSolver; 
-typedef g2o::LinearSolverCSparse< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
+typedef g2o::LinearSolverEigen< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
 
 // 给定index，读取一帧数据
 FRAME readFrame( int index, ParameterReader& pd );
@@ -80,7 +80,6 @@ int main( int argc, char** argv )
     // 不要输出调试信息
     globalOptimizer.setVerbose( false );
     
-
     // 向globalOptimizer增加第一个顶点
     g2o::VertexSE3* v = new g2o::VertexSE3();
     v->setId( currIndex );
@@ -89,10 +88,10 @@ int main( int argc, char** argv )
     globalOptimizer.addVertex( v );
     
     keyframes.push_back( currFrame );
-
+    
     double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
-
     bool check_loop_closure = pd.getData("check_loop_closure")==string("yes");
+    
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
         cout<<"Reading files "<<currIndex<<endl;
@@ -129,6 +128,7 @@ int main( int argc, char** argv )
                 checkRandomLoops( keyframes, currFrame, globalOptimizer );
             }
             keyframes.push_back( currFrame );
+            
             break;
         default:
             break;
@@ -138,10 +138,10 @@ int main( int argc, char** argv )
 
     // 优化
     cout<<RESET"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
-    globalOptimizer.save("./data/result_before.g2o");
+    globalOptimizer.save("./result_before.g2o");
     globalOptimizer.initializeOptimization();
     globalOptimizer.optimize( 100 ); //可以指定优化步数
-    globalOptimizer.save( "./data/result_after.g2o" );
+    globalOptimizer.save( "./result_after.g2o" );
     cout<<"Optimization done."<<endl;
 
     // 拼接点云地图
@@ -178,11 +178,9 @@ int main( int argc, char** argv )
     voxel.setInputCloud( output );
     voxel.filter( *tmp );
     //存储
-    pcl::io::savePCDFile( "./data/result.pcd", *tmp );
+    pcl::io::savePCDFile( "./result.pcd", *tmp );
     
     cout<<"Final map is saved."<<endl;
-    globalOptimizer.clear();
-
     return 0;
 }
 
@@ -224,7 +222,6 @@ CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, b
     static double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
     static double max_norm_lp = atof( pd.getData("max_norm_lp").c_str() );
     static CAMERA_INTRINSIC_PARAMETERS camera = getDefaultCamera();
-    static g2o::RobustKernel* robustKernel = g2o::RobustKernelFactory::instance()->construct( "Cauchy" );
     // 比较f1 和 f2
     RESULT_OF_PNP result = estimateMotion( f1, f2, camera );
     if ( result.inliers < min_inliers ) //inliers不够，放弃该帧
@@ -257,9 +254,9 @@ CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, b
     // 边部分
     g2o::EdgeSE3* edge = new g2o::EdgeSE3();
     // 连接此边的两个顶点id
-    edge->vertices() [0] = opti.vertex( f1.frameID );
-    edge->vertices() [1] = opti.vertex( f2.frameID );
-    edge->setRobustKernel( robustKernel );
+    edge->setVertex( 0, opti.vertex(f1.frameID ));
+    edge->setVertex( 1, opti.vertex(f2.frameID ));
+    edge->setRobustKernel( new g2o::RobustKernelHuber() );
     // 信息矩阵
     Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
     // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
@@ -271,6 +268,7 @@ CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, b
     edge->setInformation( information );
     // 边的估计即是pnp求解之结果
     Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
+    // edge->setMeasurement( T );
     edge->setMeasurement( T.inverse() );
     // 将此边加入图中
     opti.addEdge(edge);

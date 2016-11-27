@@ -12,7 +12,7 @@ using namespace std;
 
 // OpenCV 特征检测模块
 #include <opencv2/features2d/features2d.hpp>
-#include <opencv2/nonfree/nonfree.hpp>
+// #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
 #include <opencv2/calib3d/calib3d.hpp>
 
 int main( int argc, char** argv )
@@ -24,18 +24,22 @@ int main( int argc, char** argv )
     cv::Mat depth2 = cv::imread( "./data/depth2.png", -1);
 
     // 声明特征提取器与描述子提取器
-    cv::Ptr<cv::FeatureDetector> _detector;
-    cv::Ptr<cv::DescriptorExtractor> _descriptor;
+    cv::Ptr<cv::FeatureDetector> detector;
+    cv::Ptr<cv::DescriptorExtractor> descriptor;
 
-    // 构建提取器，默认两者都为sift
-    // 构建sift, surf之前要初始化nonfree模块
-    cv::initModule_nonfree();
-    _detector = cv::FeatureDetector::create( "SIFT" );
-    _descriptor = cv::DescriptorExtractor::create( "SIFT" );
+    // 构建提取器，默认两者都为 ORB
+    
+    // 如果使用 sift, surf ，之前要初始化nonfree模块
+    // cv::initModule_nonfree();
+    // _detector = cv::FeatureDetector::create( "SIFT" );
+    // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
+    
+    detector = cv::FeatureDetector::create("ORB");
+    descriptor = cv::DescriptorExtractor::create("ORB");
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
-    _detector->detect( rgb1, kp1 );  //提取关键点
-    _detector->detect( rgb2, kp2 );
+    detector->detect( rgb1, kp1 );  //提取关键点
+    detector->detect( rgb2, kp2 );
 
     cout<<"Key points of two images: "<<kp1.size()<<", "<<kp2.size()<<endl;
     
@@ -48,12 +52,12 @@ int main( int argc, char** argv )
    
     // 计算描述子
     cv::Mat desp1, desp2;
-    _descriptor->compute( rgb1, kp1, desp1 );
-    _descriptor->compute( rgb2, kp2, desp2 );
+    descriptor->compute( rgb1, kp1, desp1 );
+    descriptor->compute( rgb2, kp2, desp2 );
 
     // 匹配描述子
     vector< cv::DMatch > matches; 
-    cv::FlannBasedMatcher matcher;
+    cv::BFMatcher matcher;
     matcher.match( desp1, desp2, matches );
     cout<<"Find total "<<matches.size()<<" matches."<<endl;
 
@@ -73,10 +77,11 @@ int main( int argc, char** argv )
         if ( matches[i].distance < minDis )
             minDis = matches[i].distance;
     }
+    cout<<"min dis = "<<minDis<<endl;
 
     for ( size_t i=0; i<matches.size(); i++ )
     {
-        if (matches[i].distance < 4*minDis)
+        if (matches[i].distance < 10*minDis)
             goodMatches.push_back( matches[i] );
     }
 

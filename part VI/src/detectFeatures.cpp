@@ -12,7 +12,6 @@ using namespace std;
 
 // OpenCV 特征检测模块
 #include <opencv2/features2d/features2d.hpp>
-#include <opencv2/nonfree/nonfree.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
 
 int main( int argc, char** argv )
@@ -29,9 +28,8 @@ int main( int argc, char** argv )
 
     // 构建提取器，默认两者都为sift
     // 构建sift, surf之前要初始化nonfree模块
-    cv::initModule_nonfree();
-    _detector = cv::FeatureDetector::create( "SIFT" );
-    _descriptor = cv::DescriptorExtractor::create( "SIFT" );
+    _detector = cv::FeatureDetector::create( "ORB" );
+    _descriptor = cv::DescriptorExtractor::create( "ORB" );
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     _detector->detect( rgb1, kp1 );  //提取关键点
@@ -53,7 +51,7 @@ int main( int argc, char** argv )
 
     // 匹配描述子
     vector< cv::DMatch > matches; 
-    cv::FlannBasedMatcher matcher;
+    cv::BFMatcher matcher;
     matcher.match( desp1, desp2, matches );
     cout<<"Find total "<<matches.size()<<" matches."<<endl;
 

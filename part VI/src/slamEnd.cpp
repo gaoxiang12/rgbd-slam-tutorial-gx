@@ -18,10 +18,10 @@ using namespace std;
 #include <g2o/core/factory.h>
 #include <g2o/core/optimization_algorithm_factory.h>
 #include <g2o/core/optimization_algorithm_gauss_newton.h>
-#include <g2o/solvers/csparse/linear_solver_csparse.h>
 #include <g2o/core/robust_kernel.h>
 #include <g2o/core/robust_kernel_factory.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
+#include <g2o/solvers/eigen/linear_solver_eigen.h>
 
 
 // 给定index，读取一帧数据
@@ -60,7 +60,7 @@ int main( int argc, char** argv )
     *******************************/
     // 选择优化方法
     typedef g2o::BlockSolver_6_3 SlamBlockSolver; 
-    typedef g2o::LinearSolverCSparse< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
+    typedef g2o::LinearSolverEigen< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
 
     // 初始化求解器
     SlamLinearSolver* linearSolver = new SlamLinearSolver();
@@ -99,8 +99,13 @@ int main( int argc, char** argv )
         Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
         cout<<"T="<<T.matrix()<<endl;
         
-        // cloud = joinPointCloud( cloud, currFrame, T, camera );
-
+        // 去掉可视化的话，会快一些
+        if ( visualize == true )
+        {
+            cloud = joinPointCloud( cloud, currFrame, T, camera );
+            viewer.showCloud( cloud );
+        }
+        
         // 向g2o中增加这个顶点与上一帧联系的边
         // 顶点部分
         // 顶点只需设定id即可
@@ -132,8 +137,6 @@ int main( int argc, char** argv )
 
     }
 
-    // pcl::io::savePCDFile( "data/result.pcd", *cloud );
-    
     // 优化所有边
     cout<<"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
     globalOptimizer.save("./data/result_before.g2o");

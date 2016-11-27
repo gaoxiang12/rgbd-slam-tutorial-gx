@@ -3,10 +3,10 @@
 
 # part 4 里定义的参数
 # 特征类型
-detector=SIFT
-descriptor=SIFT
+detector=ORB
+descriptor=ORB
 # 筛选good match的倍数
-good_match_threshold=4
+good_match_threshold=10
 
 # camera
 camera.cx=325.5;
@@ -21,14 +21,14 @@ camera.scale=1000.0;
 start_index=150
 end_index=700
 # 数据所在目录
-rgb_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/rgb_png/
+rgb_dir=/home/xiang/dataset/rgbd-slam-tutorial/rgb_png/
 rgb_extension=.png
-depth_dir=../../../Data/zero/dataset/rgbd-slam-tutorial/depth_png/
+depth_dir=/home/xiang/dataset/rgbd-slam-tutorial/depth_png/
 depth_extension=.png
 # 点云分辨率
 voxel_grid=0.01
 # 是否实时可视化
-visualize_pointcloud=yes
+visualize_pointcloud=no
 # 最小匹配数量
 min_good_match=10
 # 最小内点

@@ -59,7 +59,6 @@ int main( int argc, char** argv )
         Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
         cout<<"T="<<T.matrix()<<endl;
         
-        //cloud = joinPointCloud( cloud, currFrame, T.inverse(), camera );
         cloud = joinPointCloud( cloud, currFrame, T, camera );
         
         if ( visualize == true )

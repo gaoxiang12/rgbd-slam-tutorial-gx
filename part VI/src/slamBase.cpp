@@ -12,8 +12,8 @@ PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC
 {
     PointCloud::Ptr cloud ( new PointCloud );
 
-    for (int m = 0; m < depth.rows; m++)
-        for (int n=0; n < depth.cols; n++)
+    for (int m = 0; m < depth.rows; m+=2)
+        for (int n=0; n < depth.cols; n+=2)
         {
             // 获取深度图中(m,n)处的值
             ushort d = depth.ptr<ushort>(m)[n];
@@ -60,7 +60,6 @@ void computeKeyPointsAndDesp( FRAME& frame, string detector, string descriptor )
     cv::Ptr<cv::FeatureDetector> _detector;
     cv::Ptr<cv::DescriptorExtractor> _descriptor;
 
-    cv::initModule_nonfree();
     _detector = cv::FeatureDetector::create( detector.c_str() );
     _descriptor = cv::DescriptorExtractor::create( descriptor.c_str() );
 
@@ -83,7 +82,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
 {
     static ParameterReader pd;
     vector< cv::DMatch > matches;
-    cv::FlannBasedMatcher matcher;
+    cv::BFMatcher matcher;
     matcher.match( frame1.desp, frame2.desp, matches );
    
     RESULT_OF_PNP result;
@@ -95,6 +94,9 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
         if ( matches[i].distance < minDis )
             minDis = matches[i].distance;
     }
+    
+    if ( minDis < 10 ) 
+        minDis = 10;
 
     for ( size_t i=0; i<matches.size(); i++ )
     {
@@ -163,17 +165,18 @@ Eigen::Isometry3d cvMat2Eigen( cv::Mat& rvec, cv::Mat& tvec )
     cv::Mat R;
     cv::Rodrigues( rvec, R );
     Eigen::Matrix3d r;
-    cv::cv2eigen(R, r);
+    for ( int i=0; i<3; i++ )
+        for ( int j=0; j<3; j++ ) 
+            r(i,j) = R.at<double>(i,j);
   
     // 将平移向量和旋转矩阵转换成变换矩阵
     Eigen::Isometry3d T = Eigen::Isometry3d::Identity();
 
     Eigen::AngleAxisd angle(r);
-    Eigen::Translation<double,3> trans(tvec.at<double>(0,0), tvec.at<double>(0,1), tvec.at<double>(0,2));
     T = angle;
     T(0,3) = tvec.at<double>(0,0); 
-    T(1,3) = tvec.at<double>(0,1); 
-    T(2,3) = tvec.at<double>(0,2);
+    T(1,3) = tvec.at<double>(1,0); 
+    T(2,3) = tvec.at<double>(2,0);
     return T;
 }
 

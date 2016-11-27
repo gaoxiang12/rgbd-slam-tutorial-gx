@@ -3,6 +3,7 @@ ADD_EXECUTABLE( main main.cpp )
 
 # 增加PCL库的依赖
 FIND_PACKAGE( PCL REQUIRED COMPONENTS common io visualization filters )
+list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4") # use this in Ubuntu 16.04
 
 # 增加opencv的依赖
 FIND_PACKAGE( OpenCV REQUIRED )
