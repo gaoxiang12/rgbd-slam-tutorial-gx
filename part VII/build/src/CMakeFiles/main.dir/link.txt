@@ -1,1 +1,0 @@
-g++   -O3 -std=c++11  -O3 -DNDEBUG    CMakeFiles/main.dir/main.cpp.o  -o ../../bin/main  -L"/home/xiang/sources/rgbd-slam-tutorial-gx/part VII/lib" -rdynamic 

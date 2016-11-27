@@ -1,5 +1,0 @@
-/home/xiang/sources/rgbd-slam-tutorial-gx/part I/build/CMakeFiles/edit_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part I/build/CMakeFiles/rebuild_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part I/build/src/CMakeFiles/rebuild_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part I/build/src/CMakeFiles/edit_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part I/build/src/CMakeFiles/main.dir

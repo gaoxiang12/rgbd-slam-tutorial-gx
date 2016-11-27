@@ -1,6 +1,0 @@
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/CMakeFiles/edit_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/CMakeFiles/rebuild_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/src/CMakeFiles/rebuild_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/src/CMakeFiles/generate_pointcloud.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/src/CMakeFiles/edit_cache.dir
-/home/xiang/sources/rgbd-slam-tutorial-gx/part II/build/src/CMakeFiles/main.dir
