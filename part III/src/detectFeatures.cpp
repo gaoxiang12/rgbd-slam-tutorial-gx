@@ -4,6 +4,7 @@
 	> Mail: gaoxiang12@mails.tsinghua.edu.cn
     > 特征提取与匹配
 	> Created Time: 2015年07月18日 星期六 16时00分21秒
+	> Modify: To support OpenCV v3.4.1
  ************************************************************************/
 
 #include<iostream>
@@ -34,8 +35,8 @@ int main( int argc, char** argv )
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
     
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+    detector =  cv::ORB::create();
+    descriptor = cv::ORB::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     detector->detect( rgb1, kp1 );  //提取关键点
