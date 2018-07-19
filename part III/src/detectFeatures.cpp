@@ -4,6 +4,7 @@
 	> Mail: gaoxiang12@mails.tsinghua.edu.cn
     > 特征提取与匹配
 	> Created Time: 2015年07月18日 星期六 16时00分21秒
+	> Modify: To support OpenCV v3.4.1
  ************************************************************************/
 
 #include<iostream>
@@ -34,8 +35,8 @@ int main( int argc, char** argv )
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
     
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+    detector =  cv::ORB::create();
+    descriptor = cv::ORB::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     detector->detect( rgb1, kp1 );  //提取关键点
@@ -134,8 +135,8 @@ int main( int argc, char** argv )
     // 构建相机矩阵
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
-    // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
+    // 求解pnp the confidence should be in (0, 1) in Opencv 3.x
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 
     cout<<"inliers: "<<inliers.rows<<endl;
     cout<<"R="<<rvec<<endl;
